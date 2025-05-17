@@ -1,0 +1,26 @@
+function [data] = getConfig()
+
+addpath(fullfile('C:\Users', getenv('username'), ...
+                 'MATLAB Drive', 'UAS Design', 'StabCon',...
+                 'Calcs', 'Conventional_Tail', 'Configurations'));
+
+addpath(fullfile('C:\Users', getenv('username'), ...
+                 'MATLAB Drive', 'UAS Design', 'StabCon',...
+                 'Calcs', 'Conventional_Tail', 'Aero'));
+
+addpath(fullfile('C:\Users', getenv('username'), ...
+                 'MATLAB Drive', 'UAS Design', 'StabCon',...
+                 'Calcs', 'Conventional_Tail', 'Plotting'));
+
+addpath(fullfile('C:\Users', getenv('username'), ...
+                 'MATLAB Drive', 'UAS Design', 'StabCon',...
+                 'Calcs', 'Conventional_Tail', 'StabCon'));
+
+configs = struct();
+configs = Inputs(configs);
+
+names = fieldnames(configs);
+data_i = configs.(names{1}).data;
+
+data = Main(data_i);
+end
